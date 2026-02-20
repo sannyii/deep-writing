@@ -1,0 +1,125 @@
+{
+    "app": {
+        "name": "DeepWriting",
+        "tagline": "AI驱动的智能写作平台",
+        "description": "让每个人都能写出专业级文章"
+    },
+    "nav": {
+        "newProject": "新建项目",
+        "projects": "我的项目",
+        "settings": "设置",
+        "logout": "退出登录",
+        "login": "登录"
+    },
+    "workflow": {
+        "materials": "素材",
+        "style": "风格",
+        "requirements": "要求",
+        "outline": "大纲",
+        "content": "正文",
+        "title": "标题"
+    },
+    "materials": {
+        "title": "参考素材",
+        "description": "上传或粘贴你的原始素材，AI将从中提取关键信息",
+        "addText": "添加文本素材",
+        "addUrl": "添加URL",
+        "addFile": "上传文件",
+        "placeholder": "粘贴参考资料、原始素材、背景信息...",
+        "nameLabel": "素材名称",
+        "importanceLabel": "重要程度",
+        "empty": "还没有添加素材，点击上方按钮开始"
+    },
+    "style": {
+        "title": "写作风格",
+        "description": "选择一个预设风格或上传范文，AI将模仿该风格进行写作",
+        "presets": "预设风格",
+        "custom": "自定义风格",
+        "samplePlaceholder": "粘贴一篇你想模仿的范文...",
+        "emotionLevel": "情感强度",
+        "professionalLevel": "专业程度",
+        "colloquialLevel": "口语化程度"
+    },
+    "requirements": {
+        "title": "写作要求",
+        "description": "在生成大纲前先明确基础约束，帮助 AI 更贴合你的产出目标",
+        "baseConfig": "基础设定",
+        "wordCount": "目标字数",
+        "audience": "目标读者",
+        "audiencePlaceholder": "例如：产品经理、技术从业者、大学生",
+        "purpose": "写作目标",
+        "purposePlaceholder": "例如：讲清核心概念并给出落地步骤",
+        "custom": "补充要求",
+        "customPlaceholder": "可输入结构、语气、禁用词、必须包含的信息等",
+        "customTips": "示例：开头 150 字内抛出结论；避免口号式表达；每节结尾加一句总结。"
+    },
+    "outline": {
+        "title": "文章大纲",
+        "description": "根据素材和风格生成大纲，你也可以跳过这一步直接写正文",
+        "generate": "AI生成大纲",
+        "skip": "跳过大纲",
+        "placeholder": "在这里编辑大纲...",
+        "regenerate": "重新生成"
+    },
+    "content": {
+        "title": "正文内容",
+        "description": "AI根据素材、风格和大纲生成文章正文",
+        "generate": "AI生成正文",
+        "regenerate": "重新生成",
+        "wordCount": "字数",
+        "placeholder": "正文将在这里生成，你也可以直接编辑..."
+    },
+    "titleGen": {
+        "title": "文章标题",
+        "description": "AI根据正文内容生成多个备选标题",
+        "generate": "生成标题",
+        "regenerate": "重新生成",
+        "select": "选择此标题",
+        "selected": "已选择",
+        "categories": {
+            "numeric": "数字冲击",
+            "emotion": "情绪渲染",
+            "suspense": "悬念型",
+            "contrast": "反差型",
+            "breaking": "震撼型"
+        }
+    },
+    "ai": {
+        "title": "AI助手",
+        "thinking": "AI正在思考...",
+        "generating": "正在生成...",
+        "complete": "生成完成",
+        "error": "生成失败，请重试"
+    },
+    "settings": {
+        "title": "设置",
+        "theme": "主题色彩",
+        "language": "界面语言",
+        "aiModel": "AI模型",
+        "themes": {
+            "warm_paper": "暖纸",
+            "ink": "墨韵",
+            "bamboo": "竹青",
+            "minimal": "素雅"
+        }
+    },
+    "auth": {
+        "login": "登录",
+        "register": "注册",
+        "loginTitle": "欢迎回来",
+        "loginDescription": "登录你的DeepWriting账号",
+        "email": "邮箱",
+        "password": "密码",
+        "continueWithGoogle": "使用Google登录",
+        "continueWithGithub": "使用GitHub登录"
+    },
+    "common": {
+        "save": "保存",
+        "cancel": "取消",
+        "delete": "删除",
+        "edit": "编辑",
+        "loading": "加载中...",
+        "confirm": "确认",
+        "back": "返回"
+    }
+}

@@ -1,0 +1,125 @@
+{
+    "app": {
+        "name": "DeepWriting",
+        "tagline": "AI-Powered Writing Platform",
+        "description": "Professional writing for everyone"
+    },
+    "nav": {
+        "newProject": "New Project",
+        "projects": "My Projects",
+        "settings": "Settings",
+        "logout": "Logout",
+        "login": "Login"
+    },
+    "workflow": {
+        "materials": "Materials",
+        "style": "Style",
+        "requirements": "Requirements",
+        "outline": "Outline",
+        "content": "Content",
+        "title": "Title"
+    },
+    "materials": {
+        "title": "Reference Materials",
+        "description": "Upload or paste your raw materials. AI will extract key information from them.",
+        "addText": "Add Text",
+        "addUrl": "Add URL",
+        "addFile": "Upload File",
+        "placeholder": "Paste reference materials, raw data, background info...",
+        "nameLabel": "Material Name",
+        "importanceLabel": "Importance",
+        "empty": "No materials added yet. Click the buttons above to start."
+    },
+    "style": {
+        "title": "Writing Style",
+        "description": "Choose a preset style or upload a sample. AI will mimic the writing style.",
+        "presets": "Preset Styles",
+        "custom": "Custom Style",
+        "samplePlaceholder": "Paste a sample article whose style you want to mimic...",
+        "emotionLevel": "Emotion Level",
+        "professionalLevel": "Professional Level",
+        "colloquialLevel": "Colloquial Level"
+    },
+    "requirements": {
+        "title": "Writing Requirements",
+        "description": "Set baseline constraints before generating the outline so AI can target your output.",
+        "baseConfig": "Baseline Settings",
+        "wordCount": "Target Length",
+        "audience": "Target Audience",
+        "audiencePlaceholder": "e.g. product managers, developers, university students",
+        "purpose": "Writing Goal",
+        "purposePlaceholder": "e.g. explain core concepts and provide actionable steps",
+        "custom": "Additional Requirements",
+        "customPlaceholder": "Add structure, tone, banned words, must-include points, etc.",
+        "customTips": "Example: give the conclusion within 150 words; avoid slogans; end each section with one takeaway sentence."
+    },
+    "outline": {
+        "title": "Article Outline",
+        "description": "Generate an outline based on materials and style, or skip to write directly.",
+        "generate": "Generate Outline",
+        "skip": "Skip Outline",
+        "placeholder": "Edit your outline here...",
+        "regenerate": "Regenerate"
+    },
+    "content": {
+        "title": "Article Content",
+        "description": "AI generates the full article based on materials, style, and outline.",
+        "generate": "Generate Content",
+        "regenerate": "Regenerate",
+        "wordCount": "Words",
+        "placeholder": "Content will be generated here. You can also edit directly..."
+    },
+    "titleGen": {
+        "title": "Article Title",
+        "description": "AI generates multiple title options based on the content.",
+        "generate": "Generate Titles",
+        "regenerate": "Regenerate",
+        "select": "Select",
+        "selected": "Selected",
+        "categories": {
+            "numeric": "Numbers",
+            "emotion": "Emotional",
+            "suspense": "Suspenseful",
+            "contrast": "Contrasting",
+            "breaking": "Breaking"
+        }
+    },
+    "ai": {
+        "title": "AI Assistant",
+        "thinking": "AI is thinking...",
+        "generating": "Generating...",
+        "complete": "Generation complete",
+        "error": "Generation failed. Please try again."
+    },
+    "settings": {
+        "title": "Settings",
+        "theme": "Theme",
+        "language": "Language",
+        "aiModel": "AI Model",
+        "themes": {
+            "warm_paper": "Warm Paper",
+            "ink": "Ink",
+            "bamboo": "Bamboo",
+            "minimal": "Minimal"
+        }
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register",
+        "loginTitle": "Welcome Back",
+        "loginDescription": "Sign in to your DeepWriting account",
+        "email": "Email",
+        "password": "Password",
+        "continueWithGoogle": "Continue with Google",
+        "continueWithGithub": "Continue with GitHub"
+    },
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "loading": "Loading...",
+        "confirm": "Confirm",
+        "back": "Back"
+    }
+}

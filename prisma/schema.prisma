@@ -1,0 +1,153 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  locale        String    @default("zh")
+  accounts      Account[]
+  sessions      Session[]
+  settings      UserSettings?
+  projects      Project[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+model UserSettings {
+  id             String @id @default(cuid())
+  userId         String @unique
+  theme          String @default("warm_paper")
+  defaultLocale  String @default("zh")
+  defaultAiModel String @default("claude-sonnet")
+  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id        String    @id @default(cuid())
+  userId    String
+  title     String    @default("未命名项目")
+  status    String    @default("draft")
+  language  String    @default("auto")
+  folder    String?
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  materials Material[]
+  style     Style?
+  outline   Outline?
+  content   Content?
+  titles    TitleOption[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Material {
+  id               String  @id @default(cuid())
+  projectId        String
+  type             String  @default("text")
+  name             String  @default("素材")
+  rawContent       String?
+  extractedContent String?
+  fileUrl          String?
+  importance       Int     @default(3)
+  project          Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt        DateTime @default(now())
+}
+
+model Style {
+  id                String  @id @default(cuid())
+  projectId         String  @unique
+  templateId        String?
+  sampleText        String?
+  extractedFeatures String?
+  emotionLevel      Int     @default(5)
+  professionalLevel Int     @default(5)
+  colloquialLevel   Int     @default(5)
+  project           Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  template          StyleTemplate? @relation(fields: [templateId], references: [id])
+}
+
+model StyleTemplate {
+  id          String  @id @default(cuid())
+  name        String
+  nameEn      String?
+  description String?
+  sampleText  String?
+  features    String?
+  isBuiltin   Boolean @default(false)
+  icon        String?
+  styles      Style[]
+}
+
+model Outline {
+  id            String  @id @default(cuid())
+  projectId     String  @unique
+  content       String?
+  isAiGenerated Boolean @default(false)
+  version       Int     @default(1)
+  project       Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Content {
+  id          String   @id @default(cuid())
+  projectId   String   @unique
+  body        String?
+  wordCount   Int      @default(0)
+  version     Int      @default(1)
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  generatedAt DateTime?
+}
+
+model TitleOption {
+  id         String  @id @default(cuid())
+  projectId  String
+  title      String
+  category   String?
+  isSelected Boolean @default(false)
+  score      Float?
+  project    Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
