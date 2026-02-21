@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowRight, Feather, Sparkles, Palette, List, PenTool, Type as TypeIcon } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import Link from 'next/link';
+import { PenTool, Sparkles, Feather, Palette, List, Zap, Shield, ArrowRight, Quote, FileText, CheckCircle2, ChevronDown, Check, Type as TypeIcon } from 'lucide-react';
 import { WritingCanvas } from '@/components/landing/WritingCanvas';
 
 function usePenScratchSound() {
@@ -635,28 +636,35 @@ export default function LandingPage() {
                     <p style={{ color: '#7C6A53', marginBottom: '2rem', fontSize: '1rem' }}>
                         无需注册，立即体验AI写作的魅力
                     </p>
-                    <a
+                    <Link
                         href="/auth"
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '0.5rem',
-                            padding: '1rem 2.5rem',
-                            background: 'linear-gradient(135deg, #D4A853, #C49540)',
+                            gap: '0.375rem',
+                            padding: '0.5rem 1.25rem',
+                            background: '#D4A853',
                             color: 'white',
-                            borderRadius: '1rem',
+                            borderRadius: '0.75rem',
+                            fontSize: '0.875rem',
                             fontWeight: 600,
-                            fontSize: '1.05rem',
                             textDecoration: 'none',
-                            boxShadow: '0 4px 24px rgba(212, 168, 83, 0.35)',
-                            transition: 'all 0.3s',
+                            boxShadow: '0 2px 12px rgba(212, 168, 83, 0.3)',
+                            transition: 'all 0.2s',
                             border: 'none',
                             cursor: 'pointer',
                         }}
+                        onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                            e.currentTarget.style.transform = 'translateY(-2px)';
+                            e.currentTarget.style.boxShadow = '0 4px 16px rgba(212, 168, 83, 0.4)';
+                        }}
+                        onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = '0 2px 12px rgba(212, 168, 83, 0.3)';
+                        }}
                     >
-                        <PenTool size={18} />
-                        开始创作
-                    </a>
+                        开始创作 <ArrowRight size={14} />
+                    </Link>
                 </div>
             </section>
 
