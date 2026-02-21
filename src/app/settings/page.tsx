@@ -30,7 +30,7 @@ export default function SettingsPage() {
     return (
         <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text)] flex flex-col items-center">
             {/* Header */}
-            <div className="w-full max-w-5xl py-8 px-6 flex items-center gap-4">
+            <div className="w-full max-w-6xl py-8 px-6 flex items-center gap-4">
                 <Link
                     href="/write"
                     className="p-2 rounded-xl transition-colors hover:bg-[var(--color-surface-hover)]"
@@ -41,7 +41,7 @@ export default function SettingsPage() {
                 <h1 className="text-3xl font-bold">{t('settings.title')}</h1>
             </div>
 
-            <div className="w-full max-w-5xl px-6 flex flex-col md:flex-row gap-8 pb-12">
+            <div className="w-full max-w-6xl px-6 flex flex-col md:flex-row gap-8 pb-12">
                 {/* Sidebar Navigation */}
                 <aside className="w-full md:w-64 shrink-0 flex flex-col gap-2">
                     <button
@@ -177,57 +177,57 @@ export default function SettingsPage() {
                                 <p className="text-[var(--color-text-secondary)]">{t('settings.pricing.description')}</p>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-stretch">
                                 {/* Free Plan */}
-                                <div className="flex flex-col p-8 rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-surface)] relative shadow-md">
+                                <div className="md:col-span-2 flex flex-col p-8 rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-surface)] relative shadow-md">
                                     <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
                                         <span className="text-xs font-bold px-3 py-1 rounded-full text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-sm">Beta</span>
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--color-accent)' }}>
+                                    <h3 className="text-xl font-bold mb-2 flex-shrink-0" style={{ color: 'var(--color-accent)' }}>
                                         {t('settings.pricing.tiers.free')}
                                     </h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
+                                    <div className="flex items-baseline gap-1 mb-6 flex-shrink-0">
                                         <span className="text-4xl font-extrabold whitespace-nowrap">¥0</span>
                                         <span className="text-md font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 永久</span>
                                     </div>
-                                    <p className="text-md text-[var(--color-text-secondary)] mb-8 flex-1 leading-relaxed">
+                                    <p className="text-md text-[var(--color-text-secondary)] mb-8 flex-grow leading-relaxed">
                                         {t('settings.pricing.features.free')}
                                     </p>
-                                    <button className="w-full mt-auto py-3 rounded-xl font-medium text-white transition-opacity hover:opacity-90 cursor-default"
+                                    <button className="w-full mt-auto py-3 rounded-xl font-medium text-white transition-opacity hover:opacity-90 cursor-default flex-shrink-0"
                                         style={{ background: 'var(--color-accent)' }}>
                                         {t('settings.pricing.currentPlan')}
                                     </button>
                                 </div>
 
                                 {/* QR Codes Section */}
-                                <div className="flex flex-col p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] h-full">
-                                    <h3 className="text-xl font-bold mb-6">{t('settings.pricing.qr.title')}</h3>
+                                <div className="md:col-span-3 flex flex-col p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm">
+                                    <h3 className="text-xl font-bold mb-8 flex-shrink-0">{t('settings.pricing.qr.title')}</h3>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 flex-grow items-center">
 
                                         {/* Official Account */}
-                                        <div className="flex flex-col items-center text-center gap-3">
-                                            <div className="w-32 h-32 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-sm overflow-hidden relative group">
+                                        <div className="flex flex-col items-center justify-center text-center gap-4">
+                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group">
                                                 {/* Placeholder for real QR code image */}
-                                                <div className="text-xs text-[var(--color-text-muted)] p-4">公众号二维码<br />(待替换图片)</div>
+                                                <div className="text-xs text-[var(--color-text-muted)] p-4 leading-relaxed">公众号二维码<br />(待替换图片)</div>
                                             </div>
                                             <div>
-                                                <h4 className="font-bold">{t('settings.pricing.qr.official')}</h4>
-                                                <p className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-[140px] mx-auto leading-relaxed">
+                                                <h4 className="font-bold text-lg">{t('settings.pricing.qr.official')}</h4>
+                                                <p className="text-sm text-[var(--color-text-secondary)] mt-1 max-w-[160px] mx-auto leading-relaxed">
                                                     {t('settings.pricing.qr.officialDesc')}
                                                 </p>
                                             </div>
                                         </div>
 
                                         {/* Personal WeChat */}
-                                        <div className="flex flex-col items-center text-center gap-3">
-                                            <div className="w-32 h-32 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-sm overflow-hidden relative group">
+                                        <div className="flex flex-col items-center justify-center text-center gap-4">
+                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group">
                                                 {/* Placeholder for real QR code image */}
-                                                <div className="text-xs text-[var(--color-text-muted)] p-4">个人微信<br />(待替换图片)</div>
+                                                <div className="text-xs text-[var(--color-text-muted)] p-4 leading-relaxed">个人微信<br />(待替换图片)</div>
                                             </div>
                                             <div>
-                                                <h4 className="font-bold">{t('settings.pricing.qr.personal')}</h4>
-                                                <p className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-[140px] mx-auto leading-relaxed">
+                                                <h4 className="font-bold text-lg">{t('settings.pricing.qr.personal')}</h4>
+                                                <p className="text-sm text-[var(--color-text-secondary)] mt-1 max-w-[160px] mx-auto leading-relaxed">
                                                     {t('settings.pricing.qr.personalDesc')}
                                                 </p>
                                             </div>
