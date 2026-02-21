@@ -550,6 +550,7 @@ export default function LandingPage() {
 
             {/* Content Categories Section */}
             <section
+                id="features"
                 style={{
                     position: 'relative',
                     zIndex: 10,
