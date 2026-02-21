@@ -203,11 +203,11 @@ export default function SettingsPage() {
                                 <div className="md:col-span-3 flex flex-col p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm">
                                     <h3 className="text-xl font-bold mb-8 flex-shrink-0">{t('settings.pricing.qr.title')}</h3>
 
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 flex-grow items-center">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 flex-grow items-start">
 
                                         {/* Official Account */}
-                                        <div className="flex flex-col items-center justify-center text-center gap-4">
-                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group p-2">
+                                        <div className="flex flex-col items-center justify-start text-center gap-4">
+                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group p-2 flex-shrink-0">
                                                 <img
                                                     src="/images/wechat-official-qr.jpg"
                                                     alt="公众号二维码"
@@ -223,8 +223,8 @@ export default function SettingsPage() {
                                         </div>
 
                                         {/* Personal WeChat */}
-                                        <div className="flex flex-col items-center justify-center text-center gap-4">
-                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group p-2">
+                                        <div className="flex flex-col items-center justify-start text-center gap-4">
+                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group p-2 flex-shrink-0">
                                                 <img
                                                     src="/images/wechat-personal-qr.png"
                                                     alt="个人微信"
