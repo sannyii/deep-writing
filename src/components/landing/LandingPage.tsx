@@ -11,11 +11,13 @@ function usePenScratchSound() {
     const fadeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const initedRef = useRef(false);
 
-    const initAudio = useCallback(() => {
-        if (initedRef.current) return;
-        initedRef.current = true;
+    useEffect(() => {
+        // Initialize immediately on mount to prevent lag on first movement
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+        if (!AudioContextClass) return;
 
-        const ctx = new AudioContext();
+        const ctx = new AudioContextClass();
         audioCtxRef.current = ctx;
 
         // White noise buffer — lighter, crisper base for pen scratch
@@ -68,49 +70,57 @@ function usePenScratchSound() {
 
         gain.connect(ctx.destination);
         noise.start();
+
+        initedRef.current = true;
+
+        return () => {
+            if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
+            ctx.close();
+        };
     }, []);
 
     const onMouseMove = useCallback((e: React.MouseEvent) => {
-        // Lazy-init on first user interaction (browser autoplay policy)
-        if (!initedRef.current) initAudio();
+        if (!initedRef.current) return;
 
         const ctx = audioCtxRef.current;
         const gain = gainRef.current;
         if (!ctx || !gain) return;
-        if (ctx.state === 'suspended') ctx.resume();
+
+        // Browsers block audio unless there's a user gesture, but we attempt to resume
+        if (ctx.state === 'suspended') {
+            ctx.resume().catch(() => { });
+        }
 
         const dx = e.clientX - lastPosRef.current.x;
         const dy = e.clientY - lastPosRef.current.y;
         const speed = Math.sqrt(dx * dx + dy * dy);
         lastPosRef.current = { x: e.clientX, y: e.clientY };
 
-        // Map speed → volume with linear ramp for smooth fade-in/fade-out
-        const vol = Math.min(speed / 30, 1) * 0.6;
+        // Increased sensitivity: speed / 15 instead of 30, max volume 0.7
+        const vol = Math.min(speed / 15, 1) * 0.7;
+
+        // Instantaneous response: 0.03s ramp instead of 0.08s
         gain.gain.cancelScheduledValues(ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + 0.08);
+        gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + 0.03);
 
         // Fade out smoothly when mouse stops
         if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
         fadeTimerRef.current = setTimeout(() => {
             if (gain && ctx) {
                 gain.gain.cancelScheduledValues(ctx.currentTime);
-                gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.15);
+                // Faster fade out to feel more responsive when stopping
+                gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.1);
             }
-        }, 60);
-    }, [initAudio]);
-
-    // Cleanup — also reset initedRef so HMR re-init works
-    useEffect(() => {
-        return () => {
-            if (fadeTimerRef.current) clearTimeout(fadeTimerRef.current);
-            audioCtxRef.current?.close();
-            audioCtxRef.current = null;
-            gainRef.current = null;
-            initedRef.current = false;
-        };
+        }, 40);
     }, []);
 
-    return onMouseMove;
+    const unlockAudio = useCallback(() => {
+        if (audioCtxRef.current?.state === 'suspended') {
+            audioCtxRef.current.resume().catch(() => { });
+        }
+    }, []);
+
+    return { onMouseMove, unlockAudio };
 }
 
 const features = [
@@ -162,7 +172,7 @@ export default function LandingPage() {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
     const [typedText, setTypedText] = useState('');
     const fullText = '让文字，自然流淌';
-    const onMouseMove = usePenScratchSound();
+    const { onMouseMove, unlockAudio } = usePenScratchSound();
 
     useEffect(() => {
         setMounted(true);
@@ -195,6 +205,8 @@ export default function LandingPage() {
         <div
             className="landing-page"
             onMouseMove={onMouseMove}
+            onPointerDown={unlockAudio}
+            onTouchStart={unlockAudio}
             style={{
                 cursor: 'url(/pen-cursor.svg) 4 28, default',
                 minHeight: '100vh',
