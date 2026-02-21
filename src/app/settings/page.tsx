@@ -176,70 +176,63 @@ export default function SettingsPage() {
                                 <p className="text-[var(--color-text-secondary)]">{t('settings.pricing.description')}</p>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                                 {/* Free Plan */}
-                                <div className="flex flex-col p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] relative h-full">
-                                    <h3 className="text-lg font-bold mb-2">{t('settings.pricing.tiers.free')}</h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
-                                        <span className="text-3xl font-extrabold whitespace-nowrap">¥0</span>
-                                        <span className="text-sm font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 月</span>
+                                <div className="flex flex-col p-8 rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-surface)] relative shadow-md">
+                                    <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
+                                        <span className="text-xs font-bold px-3 py-1 rounded-full text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-sm">Beta</span>
                                     </div>
-                                    <p className="text-sm text-[var(--color-text-secondary)] mb-8 flex-1">
+                                    <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--color-accent)' }}>
+                                        {t('settings.pricing.tiers.free')}
+                                    </h3>
+                                    <div className="flex items-baseline gap-1 mb-6">
+                                        <span className="text-4xl font-extrabold whitespace-nowrap">¥0</span>
+                                        <span className="text-md font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 永久</span>
+                                    </div>
+                                    <p className="text-md text-[var(--color-text-secondary)] mb-8 flex-1 leading-relaxed">
                                         {t('settings.pricing.features.free')}
                                     </p>
-                                    <button className="w-full mt-auto py-2.5 rounded-lg border border-[var(--color-border)] text-sm font-medium hover:bg-[var(--color-surface-hover)] transition-colors">
+                                    <button className="w-full mt-auto py-3 rounded-xl font-medium text-white transition-opacity hover:opacity-90 cursor-default"
+                                        style={{ background: 'var(--color-accent)' }}>
                                         {t('settings.pricing.currentPlan')}
                                     </button>
                                 </div>
 
-                                {/* Lite Plan */}
-                                <div className="flex flex-col p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] relative h-full">
-                                    <h3 className="text-lg font-bold mb-2">{t('settings.pricing.tiers.lite')}</h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
-                                        <span className="text-3xl font-extrabold whitespace-nowrap">¥29</span>
-                                        <span className="text-sm font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 月</span>
-                                    </div>
-                                    <p className="text-sm text-[var(--color-text-secondary)] mb-8 flex-1">
-                                        {t('settings.pricing.features.lite')}
-                                    </p>
-                                    <button className="w-full mt-auto py-2.5 rounded-lg font-medium transition-colors"
-                                        style={{ background: 'var(--color-accent-light)', color: 'var(--color-accent)' }}>
-                                        {t('settings.pricing.subscribe')}
-                                    </button>
-                                </div>
+                                {/* QR Codes Section */}
+                                <div className="flex flex-col p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] h-full">
+                                    <h3 className="text-xl font-bold mb-6">{t('settings.pricing.qr.title')}</h3>
 
-                                {/* Pro Plan */}
-                                <div className="flex flex-col p-6 rounded-2xl border-2 border-[var(--color-accent)] bg-[var(--color-surface)] relative shadow-md xl:scale-105 z-10 h-full">
-                                    <div className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
-                                        <span className="text-xs font-bold px-3 py-1 rounded-full text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-sm">推荐</span>
-                                    </div>
-                                    <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--color-accent)' }}>{t('settings.pricing.tiers.pro')}</h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
-                                        <span className="text-3xl font-extrabold whitespace-nowrap">¥69</span>
-                                        <span className="text-sm font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 月</span>
-                                    </div>
-                                    <p className="text-sm text-[var(--color-text-secondary)] mb-8 flex-1">
-                                        {t('settings.pricing.features.pro')}
-                                    </p>
-                                    <button className="w-full mt-auto py-2.5 rounded-lg font-medium text-white transition-opacity hover:opacity-90"
-                                        style={{ background: 'var(--color-accent)' }}>
-                                        {t('settings.pricing.subscribe')}
-                                    </button>
-                                </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
 
-                                {/* Max Plan */}
-                                <div className="flex flex-col p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] relative h-full">
-                                    <h3 className="text-lg font-bold mb-2">{t('settings.pricing.tiers.max')}</h3>
-                                    <div className="flex items-baseline gap-1 mb-6">
-                                        <span className="text-3xl font-extrabold whitespace-nowrap">¥199</span>
-                                        <span className="text-sm font-normal text-[var(--color-text-secondary)] whitespace-nowrap">/ 月</span>
+                                        {/* Official Account */}
+                                        <div className="flex flex-col items-center text-center gap-3">
+                                            <div className="w-32 h-32 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-sm overflow-hidden relative group">
+                                                {/* Placeholder for real QR code image */}
+                                                <div className="text-xs text-[var(--color-text-muted)] p-4">公众号二维码<br />(待替换图片)</div>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold">{t('settings.pricing.qr.official')}</h4>
+                                                <p className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-[140px] mx-auto leading-relaxed">
+                                                    {t('settings.pricing.qr.officialDesc')}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Personal WeChat */}
+                                        <div className="flex flex-col items-center text-center gap-3">
+                                            <div className="w-32 h-32 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-sm overflow-hidden relative group">
+                                                {/* Placeholder for real QR code image */}
+                                                <div className="text-xs text-[var(--color-text-muted)] p-4">个人微信<br />(待替换图片)</div>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold">{t('settings.pricing.qr.personal')}</h4>
+                                                <p className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-[140px] mx-auto leading-relaxed">
+                                                    {t('settings.pricing.qr.personalDesc')}
+                                                </p>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <p className="text-sm text-[var(--color-text-secondary)] mb-8 flex-1">
-                                        {t('settings.pricing.features.max')}
-                                    </p>
-                                    <button className="w-full mt-auto py-2.5 rounded-lg border border-[var(--color-border)] text-sm font-medium hover:bg-[var(--color-surface-hover)] transition-colors">
-                                        {t('settings.pricing.subscribe')}
-                                    </button>
                                 </div>
                             </div>
                         </div>

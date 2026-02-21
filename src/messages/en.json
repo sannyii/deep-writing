@@ -114,20 +114,21 @@
         },
         "pricing": {
             "title": "Subscription Plans",
-            "description": "Choose the right plan for your needs.",
+            "description": "Currently in beta. Enjoy all features for free, or connect with us.",
             "currentPlan": "Current Plan",
-            "subscribe": "Subscribe",
+            "contactUs": "Contact Us",
             "tiers": {
-                "free": "Free",
-                "lite": "Lite",
-                "pro": "Pro",
-                "max": "Max"
+                "free": "Free Beta"
             },
             "features": {
-                "free": "Basic features, limited AI credits",
-                "lite": "More credits, standard generation speed",
-                "pro": "High credits, fast generation, priority support",
-                "max": "Unlimited credits, latest models, 1-on-1 support"
+                "free": "Access to all current AI writing features. Fair use limits apply."
+            },
+            "qr": {
+                "title": "Need more? Connect with us!",
+                "official": "Official Account",
+                "officialDesc": "Follow for updates & tutorials",
+                "personal": "Creator's WeChat",
+                "personalDesc": "Add for custom needs & feedback"
             }
         }
     },
