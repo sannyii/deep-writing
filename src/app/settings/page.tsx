@@ -6,6 +6,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { User, CreditCard, ChevronLeft, LogOut, Check } from 'lucide-react';
 import Link from 'next/link';
 import { useAppStore } from '@/lib/store';
+import { themes } from '@/lib/themes';
 
 export default function SettingsPage() {
     const t = useTranslations();
@@ -19,7 +20,7 @@ export default function SettingsPage() {
 
     // Define allowed theme IDs
     type ThemeId = 'warm_paper' | 'ink' | 'bamboo' | 'minimal';
-    const themes: { id: ThemeId; name: string }[] = [
+    const themeOptions: { id: ThemeId; name: string }[] = [
         { id: 'warm_paper', name: t('settings.themes.warm_paper') },
         { id: 'ink', name: t('settings.themes.ink') },
         { id: 'bamboo', name: t('settings.themes.bamboo') },
@@ -108,7 +109,7 @@ export default function SettingsPage() {
                             <section>
                                 <h2 className="text-xl font-bold mb-6">{t('settings.theme')}</h2>
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    {themes.map((tItem) => {
+                                    {themeOptions.map((tItem) => {
                                         const isSelected = theme === tItem.id;
                                         return (
                                             <button
@@ -122,7 +123,7 @@ export default function SettingsPage() {
                                                 <div
                                                     className="w-12 h-12 rounded-full shadow-inner"
                                                     style={{
-                                                        background: `var(--theme-${tItem.id}-bg-primary, ${isSelected ? 'var(--color-bg-primary)' : '#f8f9fa'})`,
+                                                        background: themes[tItem.id as keyof typeof themes].bg,
                                                         border: '1px solid var(--color-border)'
                                                     }}
                                                 ></div>
