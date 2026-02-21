@@ -101,6 +101,34 @@
             "ink": "墨韵",
             "bamboo": "竹青",
             "minimal": "素雅"
+        },
+        "tabs": {
+            "basic": "基本设置",
+            "pricing": "订阅计划"
+        },
+        "profile": {
+            "title": "个人资料",
+            "name": "昵称",
+            "email": "邮箱",
+            "notLoggedIn": "未登录"
+        },
+        "pricing": {
+            "title": "订阅计划",
+            "description": "选择适合您的订阅计划。",
+            "currentPlan": "当前计划",
+            "subscribe": "立即订阅",
+            "tiers": {
+                "free": "免费版",
+                "lite": "基础版",
+                "pro": "专业版",
+                "max": "尊享版"
+            },
+            "features": {
+                "free": "基础功能, 有限的 AI 次数",
+                "lite": "更多 AI 次数, 标准生成速度",
+                "pro": "大量 AI 次数, 快速生成, 专属客服",
+                "max": "无限制次数, 抢先体验最新模型, 一对一服务"
+            }
         }
     },
     "auth": {

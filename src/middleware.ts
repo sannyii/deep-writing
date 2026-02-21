@@ -4,10 +4,12 @@ import { NextResponse } from 'next/server';
 export default auth((req) => {
     const isLoggedIn = !!req.auth;
     const isWritePage = req.nextUrl.pathname.startsWith('/write');
+    const isSettingsPage = req.nextUrl.pathname.startsWith('/settings');
+    const isProtected = isWritePage || isSettingsPage;
     const isAuthPage = req.nextUrl.pathname.startsWith('/auth');
 
     // Redirect unauthenticated users to /auth
-    if (isWritePage && !isLoggedIn) {
+    if (isProtected && !isLoggedIn) {
         return NextResponse.redirect(new URL('/auth', req.url));
     }
 
@@ -20,5 +22,5 @@ export default auth((req) => {
 });
 
 export const config = {
-    matcher: ['/write/:path*', '/auth'],
+    matcher: ['/write/:path*', '/auth', '/settings'],
 };

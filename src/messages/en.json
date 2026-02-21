@@ -101,6 +101,34 @@
             "ink": "Ink",
             "bamboo": "Bamboo",
             "minimal": "Minimal"
+        },
+        "tabs": {
+            "basic": "Basic Settings",
+            "pricing": "Subscription Plans"
+        },
+        "profile": {
+            "title": "Profile",
+            "name": "Name",
+            "email": "Email",
+            "notLoggedIn": "Not logged in"
+        },
+        "pricing": {
+            "title": "Subscription Plans",
+            "description": "Choose the right plan for your needs.",
+            "currentPlan": "Current Plan",
+            "subscribe": "Subscribe",
+            "tiers": {
+                "free": "Free",
+                "lite": "Lite",
+                "pro": "Pro",
+                "max": "Max"
+            },
+            "features": {
+                "free": "Basic features, limited AI credits",
+                "lite": "More credits, standard generation speed",
+                "pro": "High credits, fast generation, priority support",
+                "max": "Unlimited credits, latest models, 1-on-1 support"
+            }
         }
     },
     "auth": {

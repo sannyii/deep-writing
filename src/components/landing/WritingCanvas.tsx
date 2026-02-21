@@ -129,7 +129,7 @@ export function WritingCanvas() {
         ctx.restore();
     }, []);
 
-    const animate = useCallback(() => {
+    const animate = useCallback(function tick() {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
@@ -201,7 +201,7 @@ export function WritingCanvas() {
             glowPhase.current = 0;
         }
 
-        animFrame.current = requestAnimationFrame(animate);
+        animFrame.current = requestAnimationFrame(tick);
     }, [drawStrokePath]);
 
     useEffect(() => {

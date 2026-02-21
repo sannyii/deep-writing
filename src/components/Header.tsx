@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Settings, LogOut, Pencil, Check, Loader2 } from 'lucide-react';
 import { useAppStore } from '@/lib/store';
 import { useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 export function Header() {
     const t = useTranslations();
@@ -152,12 +153,13 @@ export function Header() {
 
             {/* Right - Controls */}
             <div className="flex items-center gap-2">
-                <button
+                <Link
+                    href="/settings"
                     className="p-1.5 rounded-lg transition-colors hover:bg-[var(--color-surface-hover)]"
                     style={{ color: 'var(--color-text-secondary)' }}
                 >
                     <Settings size={16} />
-                </button>
+                </Link>
 
                 {session?.user && (
                     <div className="flex items-center gap-2 ml-1">
