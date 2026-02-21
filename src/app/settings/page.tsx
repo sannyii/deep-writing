@@ -224,9 +224,12 @@ export default function SettingsPage() {
 
                                         {/* Personal WeChat */}
                                         <div className="flex flex-col items-center justify-center text-center gap-4">
-                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group">
-                                                {/* Placeholder for real QR code image */}
-                                                <div className="text-xs text-[var(--color-text-muted)] p-4 leading-relaxed">个人微信<br />(待替换图片)</div>
+                                            <div className="w-36 h-36 lg:w-40 lg:h-40 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl flex items-center justify-center shadow-inner overflow-hidden relative group p-2">
+                                                <img
+                                                    src="/images/wechat-personal-qr.png"
+                                                    alt="个人微信"
+                                                    className="w-full h-full object-contain mix-blend-multiply"
+                                                />
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-lg">{t('settings.pricing.qr.personal')}</h4>
